@@ -1,0 +1,33 @@
+Session: a plugin changing the picture
+Same configuration folder as t13, plus one line of Lua in
+init.lua (the file Yazi runs at startup):
+
+  require("full-border"):setup()
+
+installed beforehand with ya pkg (transcript t08).
+
+How these screens were captured: the lab has no interactive
+terminal, so Yazi ran on a pseudo-terminal (110x32) driven by a
+small Python harness (ptyrun.py, kept in this folder). The harness
+sent real keystrokes and rendered the terminal with the pyte
+library. What you see is the rendered screen, trimmed vertically
+where marked [...]. File results were then checked on disk with
+ordinary shell commands, which are shown after each session.
+The icons in the listings are Yazi's file-type glyphs, drawn from
+a Nerd Font; in a plain font they show as boxes or blanks.
+
+--- The same playground folder as t09, but every pane now sits
+    inside a drawn box border - compare the plain dividers in
+    t09's screens.
+
+~/workspace/yazi-labwork/playground
+╭─────────────┬─────────────────────────────────────────────────────┬────────────────────────────────────────╮
+│  bin       │ garden                                          3│ 󰈙 seeds.txt                            │
+│  config    │  kitchen                                           │ 󰈙 tools.txt                            │
+│  configbr… │  photos                                            │  watering.md                          │
+│  configho… │ 󰈙 .hidden-note.txt                              45B │                                        │
+│  extract   │  budget.csv                                    38B │                                        │
+│  ops       │ 󰈙 cwd-out.txt                                   53B │                                        │
+│ playgrou…│ 󰈙 notes.txt                                    103B │                                        │
+[...]
+ NOR  58B  garden                                                                drwxrwx---  Top   1/7  

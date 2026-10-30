@@ -1,0 +1,99 @@
+$ yazi --debug
+error: unexpected argument '--debug' found
+
+  tip: to pass '--debug' as a value, use '-- --debug'
+
+Usage: yazi [OPTIONS] [ENTRIES]...
+
+For more information, try '--help'.
+
+$ ya env    (the debug report lives here in Yazi 26)
+Yazi
+No such file or directory (os error 2)
+    Backtrace: None
+
+Ya
+    Version: 26.9.1 (8dd895c 2026-09-01)
+    Debug  : false
+    Triple : x86_64-unknown-linux-gnu (linux-x86_64)
+    Rustc  : 1.98.0 (88d9e12a 2026-08-18)
+
+Config
+    Init             : /home/hatch/.config/yazi/init.lua (No such file or directory (os error 2))
+    Yazi             : /home/hatch/.config/yazi/yazi.toml (No such file or directory (os error 2))
+    Keymap           : /home/hatch/.config/yazi/keymap.toml (No such file or directory (os error 2))
+    Theme            : /home/hatch/.config/yazi/theme.toml (No such file or directory (os error 2))
+    VFS              : /home/hatch/.config/yazi/vfs.toml (No such file or directory (os error 2))
+    Package          : /home/hatch/.config/yazi/package.toml (No such file or directory (os error 2))
+    Dark/light flavor: ArcSwapAny("") / ArcSwapAny("")
+
+Emulator
+    TERM                : None
+    TERM_PROGRAM        : None
+    TERM_PROGRAM_VERSION: None
+    Brand.from_env      : None
+    Emulator.probe      : Emulator { brand: Unknown, version: ArcSwapAny(""), csi_u: None, kgp: false, kgp_shm: false, sixel: false, background: None, color_scheme: None, csi_16t: (0, 0), force_16t: false, osc_5522: false, cursor_blink: false, cursor_shape: None, mux: None, probe: Probe { id: Id(0), completed: false }, started: false }
+
+Adapter
+    Drivers.matches: Chafa
+    TERM.dimension : Dimension { cols: 0, rows: 0, width: 0, height: 0 }
+
+Desktop
+    XDG_SESSION_TYPE           : None
+    WAYLAND_DISPLAY            : None
+    DISPLAY                    : None
+    NIRI_SOCKET                : None
+    SWAYSOCK                   : None
+    HYPRLAND_INSTANCE_SIGNATURE: None
+    WAYFIRE_SOCKET             : None
+
+SSH
+    shared.in_ssh_connection: false
+
+WSL
+    WSL: false
+
+Variables
+    SHELL              : None
+    EDITOR             : None
+    VISUAL             : None
+    YAZI_FILE_ONE      : None
+    YAZI_CONFIG_HOME   : None
+    YAZI_ZOXIDE_OPTS   : None
+    SSH_AUTH_SOCK      : None
+    FZF_DEFAULT_OPTS   : None
+    FZF_DEFAULT_COMMAND: None
+
+Text Opener
+    default     : Some(OpenerRuleArc(OpenerRule { id: Id(3), run: "${EDITOR:-vi} %s", block: true, orphan: false, desc: "$EDITOR", for: Unix, spread: true }))
+    block-create: Some(OpenerRuleArc(OpenerRule { id: Id(3), run: "${EDITOR:-vi} %s", block: true, orphan: false, desc: "$EDITOR", for: Unix, spread: true }))
+    block-rename: Some(OpenerRuleArc(OpenerRule { id: Id(3), run: "${EDITOR:-vi} %s", block: true, orphan: false, desc: "$EDITOR", for: Unix, spread: true }))
+
+Multiplexers
+    tmux version       : 3.4
+    tmux build flags   : enable-sixel=Unknown
+    ZELLIJ_SESSION_NAME: None
+    Zellij version     : No such file or directory (os error 2)
+
+Dependencies
+    file          : 5.45
+    ueberzugpp    : No such file or directory (os error 2)
+    ffmpeg/ffprobe: 8.1.2 / 8.1.2
+    pdftoppm      : 24.02.0
+    magick        : No such file or directory (os error 2)
+    fzf           : No such file or directory (os error 2)
+    fd/fdfind     : No such file or directory (os error 2) / 9.0.0
+    rg            : 14.1.0
+    chafa         : No such file or directory (os error 2)
+    zoxide        : No such file or directory (os error 2)
+    7zz/7z        : No such file or directory (os error 2) / 23.01
+    resvg         : No such file or directory (os error 2)
+    jq            : 1.7
+
+Clipboard
+    wl-copy/paste: No such file or directory (os error 2) / No such file or directory (os error 2)
+    xclip        : 0.13
+    xsel         : No such file or directory (os error 2)
+
+Routine
+    `file -bL --mime-type`: text/plain

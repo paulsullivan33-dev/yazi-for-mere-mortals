@@ -1,0 +1,4 @@
+wait 1.8
+snap 01-full-border
+send q
+wait 0.5

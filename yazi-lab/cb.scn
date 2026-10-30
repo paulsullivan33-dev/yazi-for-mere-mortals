@@ -1,0 +1,4 @@
+wait 2.2
+snap 01-broken-config
+send q
+wait 0.6

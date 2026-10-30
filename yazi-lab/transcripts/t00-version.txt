@@ -1,0 +1,15 @@
+$ yazi --version
+Yazi
+    Version: 26.9.1 (8dd895c 2026-09-01)
+    Debug  : false
+    Triple : x86_64-unknown-linux-gnu (linux-x86_64)
+    Rustc  : 1.98.0 (88d9e12a 2026-08-18)
+
+
+$ ya --version
+Ya
+    Version: 26.9.1 (8dd895c 2026-09-01)
+    Debug  : false
+    Triple : x86_64-unknown-linux-gnu (linux-x86_64)
+    Rustc  : 1.98.0 (88d9e12a 2026-08-18)
+

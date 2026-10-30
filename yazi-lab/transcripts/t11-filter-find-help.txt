@@ -1,0 +1,50 @@
+Session: narrowing a list, jumping by name, and the help key
+Start directory: the playground folder again.
+
+How these screens were captured: the lab has no interactive
+terminal, so Yazi ran on a pseudo-terminal (110x32) driven by a
+small Python harness (ptyrun.py, kept in this folder). The harness
+sent real keystrokes and rendered the terminal with the pyte
+library. What you see is the rendered screen, trimmed vertically
+where marked [...]. File results were then checked on disk with
+ordinary shell commands, which are shown after each session.
+The icons in the listings are Yazi's file-type glyphs, drawn from
+a Nerd Font; in a plain font they show as boxes or blanks.
+
+--- f opens the filter prompt; typing "notes" and pressing
+    Enter leaves only the matching entry listed, and the header
+    says so. Esc clears the filter and the full list returns.
+
+~/workspace/yazi-labwork/playground (filter: notes)
+   bin       │󰈙 notes.txt                                        │Dear diary,
+   config    │                                                     │
+   extract   │                                                     │The tomatoes went in on Saturday.
+   ops       │                                                     │The beans are already up.
+  playgrou…│                                                     │Remember to order more twine.
+   raw       │                                                     │
+   snaps-b1  │                                                     │
+   snaps-b2  │                                                     │
+[...]
+ NOR  103B  notes.txt                                                            -rw-rw----  Top   1/1  
+
+--- / opens Find. Typing "ph" jumps the hover straight to
+    photos; Enter confirms, and n / N would walk the matches.
+
+~/workspace/yazi-labwork/playground (find: ph)
+   bin       │  garden                                            │ 󰈙 holiday-notes.txt
+   config    │  kitchen     ╭Find next:──────────────────────────────────────╮
+   extract   │ photos      │ph                                              │
+   ops       │  budget.csv  ╰────────────────────────────────────────────────╯
+  playgrou…│ 󰈙 notes.txt                                         │
+   raw       │                                                     │
+   snaps-b1  │                                                     │
+   snaps-b2  │                                                     │
+[...]
+ NOR  34B  photos                                                                drwxrwx---  60%   3/5  
+
+--- ~ opens the built-in help: a scrollable list of every
+    keybinding. Three lines of it, exactly as rendered:
+
+  q                   Quit the process
+  Q                   Quit without outputting cwd-file
+  <C-c>               Close the current tab, or quit if it's last

@@ -1,0 +1,82 @@
+Session: first look and moving around
+Start directory: the lab's playground folder, holding three
+folders (garden, kitchen, photos) and two files (budget.csv,
+notes.txt). A sixth entry, .hidden-note.txt, is hidden by default.
+
+How these screens were captured: the lab has no interactive
+terminal, so Yazi ran on a pseudo-terminal (110x32) driven by a
+small Python harness (ptyrun.py, kept in this folder). The harness
+sent real keystrokes and rendered the terminal with the pyte
+library. What you see is the rendered screen, trimmed vertically
+where marked [...]. File results were then checked on disk with
+ordinary shell commands, which are shown after each session.
+The icons in the listings are Yazi's file-type glyphs, drawn from
+a Nerd Font; in a plain font they show as boxes or blanks.
+
+--- On start (no keys sent yet). The middle pane is the current
+    folder, the left pane its parent, the right pane a preview
+    of the hovered entry (here the garden folder's contents).
+    The status bar reads: mode NOR, hovered size 58B, 1/5.
+
+~/workspace/yazi-labwork/playground
+   bin       │ garden                                           │ 󰈙 seeds.txt
+   config    │  kitchen                                           │ 󰈙 tools.txt
+   extract   │  photos                                            │  watering.md
+  playgrou…│  budget.csv                                        │
+   raw       │ 󰈙 notes.txt                                         │
+   snaps-nav │                                                     │
+   transcri… │                                                     │
+   venv      │                                                     │
+[...]
+ NOR  58B  garden                                                                drwxrwx---  Top   1/5  
+
+--- After two presses of j (down). Hover is on photos (3/5),
+    and the preview pane follows, showing what is inside photos.
+
+~/workspace/yazi-labwork/playground
+   bin       │  garden                                            │ 󰈙 holiday-notes.txt
+   config    │  kitchen                                           │
+   extract   │ photos                                           │
+  playgrou…│  budget.csv                                        │
+   raw       │ 󰈙 notes.txt                                         │
+   snaps-nav │                                                     │
+   transcri… │                                                     │
+   venv      │                                                     │
+[...]
+ NOR  34B  photos                                                                drwxrwx---  60%   3/5  
+
+--- After l (enter the folder). We are inside photos; the
+    preview pane now shows the *contents* of the only file,
+    holiday-notes.txt. Text previews work out of the box.
+
+~/workspace/yazi-labwork/playground/photos
+   garden    │󰈙 holiday-notes.txt                                │Notes for the photo album, when the prin
+   kitchen   │                                                     │
+  photos   │                                                     │
+   budg….csv │                                                     │
+  󰈙 notes.txt │                                                     │
+              │                                                     │
+              │                                                     │
+              │                                                     │
+[...]
+ NOR  51B  holiday-notes.txt                                                     -rw-rw----  Top   1/1  
+
+--- After h (back to parent) and G (jump to the bottom entry).
+    Hover is on notes.txt (5/5) and the preview pane shows the
+    file's text, line by line.
+
+~/workspace/yazi-labwork/playground
+   bin       │  garden                                            │Dear diary,
+   config    │  kitchen                                           │
+   extract   │  photos                                            │The tomatoes went in on Saturday.
+  playgrou…│  budget.csv                                        │The beans are already up.
+   raw       │󰈙 notes.txt                                        │Remember to order more twine.
+   snaps-nav │                                                     │
+   transcri… │                                                     │
+   venv      │                                                     │
+[...]
+ NOR  103B  notes.txt                                                            -rw-rw----  Bot   5/5  
+
+--- q quits. The harness reported the process exit code:
+
+CHILD_EXIT=0

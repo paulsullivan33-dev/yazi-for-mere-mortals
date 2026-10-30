@@ -1,0 +1,8 @@
+wait 1.8
+send a
+wait 0.5
+send new-folder/
+wait 0.6
+snap 01-folder-created
+send q
+wait 0.5

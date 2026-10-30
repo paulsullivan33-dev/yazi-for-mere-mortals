@@ -1,0 +1,24 @@
+Session: a configuration with a mistake in it
+The lab's yazi.toml for this run said, in full:
+
+  [mgr]
+  show_hidden = tru
+
+Started with that configuration, Yazi does not open. It prints
+this, in full-screen text, before anything else (a garbage
+string from the terminal probe has been left as it fell):
+
+--- screen ---
+Running with log level `yazi=DEBUG`, logs are written to ".../statebroken/yazi/yazi.log"
+Failed to parse config ".../configbroken/yazi/yazi.toml"
+Caused by:
+TOML parse error at line 2, column 15
+  |
+2 | show_hidden = tru
+  |               ^^^
+invalid boolean, expected `true`
+Press any key to continue with preset settings...
+--- end screen ---
+
+Pressing a key starts Yazi with its built-in preset settings,
+so a typo costs you your configuration, never the program.

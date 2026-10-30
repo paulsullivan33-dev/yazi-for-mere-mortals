@@ -1,0 +1,55 @@
+Session: a configuration of our own, working
+Yazi was started with XDG_CONFIG_HOME pointing at a folder
+holding two files written for this lab:
+
+yazi.toml:
+  [mgr]
+  show_hidden = true
+  linemode = "size"
+
+keymap.toml:
+  [[mgr.prepend_keymap]]
+  on = ["g", "x"]
+  run = 'shell "touch /home/hatch/workspace/yazi-labwork/keymap-proof.txt"'
+  desc = "Touch the proof file"
+
+How these screens were captured: the lab has no interactive
+terminal, so Yazi ran on a pseudo-terminal (110x32) driven by a
+small Python harness (ptyrun.py, kept in this folder). The harness
+sent real keystrokes and rendered the terminal with the pyte
+library. What you see is the rendered screen, trimmed vertically
+where marked [...]. File results were then checked on disk with
+ordinary shell commands, which are shown after each session.
+The icons in the listings are Yazi's file-type glyphs, drawn from
+a Nerd Font; in a plain font they show as boxes or blanks.
+
+--- First screen with that configuration. Two changes against
+    the default run in t09: .hidden-note.txt is listed (hidden
+    files shown), and every row carries its size at the right
+    edge - 45B for the note, 103B for notes.txt - because
+    linemode is "size". Folders report their item count instead
+    (garden: 3).
+
+~/workspace/yazi-labwork/playground
+   bin       │ garden                                          3│ 󰈙 seeds.txt
+   config    │  kitchen                                           │ 󰈙 tools.txt
+   configho… │  photos                                            │  watering.md
+   extract   │ 󰈙 .hidden-note.txt                              45B │
+   ops       │  budget.csv                                    38B │
+  playgrou…│ 󰈙 cwd-out.txt                                   53B │
+   raw       │ 󰈙 notes.txt                                    103B │
+   snaps-b1  │                                                     │
+[...]
+ NOR  58B  garden                                                                drwxrwx---  Top   1/7  
+
+--- g is a prefix key; its menu now includes the lab's own
+    entry, by its description, among the built-in ones:
+
+  x -> Touch the proof file      g -> Go to top        h -> Go home
+  c -> Go to ~/.config           d -> Go to ~/Downloads  t -> Go to trash bin
+
+--- After g then x (the harness waited a second), the shell
+    confirms the command ran:
+
+$ ls -la keymap-proof.txt
+-rw-rw---- 1 root root 0 Oct 30 08:33 keymap-proof.txt

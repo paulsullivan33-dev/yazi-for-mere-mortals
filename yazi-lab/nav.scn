@@ -1,0 +1,15 @@
+wait 1.5
+snap 01-start
+send j
+snap 02-after-j
+send j
+snap 03-after-jj
+send l
+wait 0.6
+snap 04-inside
+send h
+snap 05-back
+send G
+snap 06-bottom
+send q
+wait 0.6

@@ -1,0 +1,14 @@
+wait 1.8
+send t
+wait 0.9
+snap 01-t-popup
+send t
+wait 0.9
+snap 02-after-tt
+send j
+wait 0.5
+send l
+wait 0.7
+snap 03-tab2-kitchen
+send q
+wait 0.6

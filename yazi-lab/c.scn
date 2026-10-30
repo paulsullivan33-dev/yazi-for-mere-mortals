@@ -1,0 +1,10 @@
+wait 1.8
+snap 01-config-start
+send g
+wait 0.9
+snap 02-g-popup
+send x
+wait 1.0
+snap 03-after-gx
+send q
+wait 0.6

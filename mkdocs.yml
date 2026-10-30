@@ -1,0 +1,28 @@
+site_name: Yazi for Mere Mortals
+site_description: A terminal file manager that shows three panes at once — where you are, what is here, and what the hovered file contains. Moving at keyboard speed, copying, renaming and deleting with a safety net, previews before you open anything, and plain-text files for every setting, with the limits stated plainly.
+site_url: https://paulsullivan33-dev.github.io/yazi-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text CC BY 4.0, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Yazi Is: what-yazi-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing Yazi: installing-yazi.md
+  - Your First Look: your-first-look.md
+  - Moving Around: moving-around.md
+  - Working with Files: working-with-files.md
+  - Proving It Worked: proving-it-worked.md
+  - Previews: previews.md
+  - Making It Yours: making-it-yours.md
+  - Plugins and Packages: plugins-and-packages.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

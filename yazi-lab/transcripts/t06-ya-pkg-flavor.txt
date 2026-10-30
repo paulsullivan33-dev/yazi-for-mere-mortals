@@ -1,0 +1,18 @@
+$ ya pkg add yazi-rs/flavors:catppuccin-mocha
+
+   Upgrading package `catppuccin-mocha.yazi`
+
+Cloning into '/home/hatch/.cache/yazi/packages/77b6b1d6e440b3af955262706bce251'...
+remote: Enumerating objects: 769, done.
+[... git clone progress lines omitted ...]
+remote: Total 769 (delta 235), reused 168 (delta 158), pack-reused 490 (from 3)
+[... git clone progress lines omitted ...]
+
+   Deploying package `catppuccin-mocha.yazi`
+
+Done!
+
+$ ya pkg list
+Plugins:
+Flavors:
+	yazi-rs/flavors:catppuccin-mocha (1183892)

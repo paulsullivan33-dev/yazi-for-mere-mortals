@@ -1,0 +1,29 @@
+$ cat ~/.config/yazi/package.toml   (written by ya pkg)
+[plugin]
+deps = []
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "1183892"
+hash = "ce320f877fe709b189433941aba747c4"
+
+$ cat ~/.config/yazi/theme.toml
+[flavor]
+dark = "catppuccin-mocha"
+
+$ ya env | grep -i flavor
+Yazi
+No such file or directory (os error 2)
+    Backtrace: None
+
+Ya
+    Version: 26.9.1 (8dd895c 2026-09-01)
+--
+    Package          : /home/hatch/workspace/yazi-labwork/confighome/yazi/package.toml (135 chars)
+    Dark/light flavor: ArcSwapAny("catppuccin-mocha") / ArcSwapAny("")
+
+Emulator
+    TERM                : None
+    TERM_PROGRAM        : None
+    TERM_PROGRAM_VERSION: None
+    Brand.from_env      : None

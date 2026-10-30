@@ -1,0 +1,35 @@
+Session: a second tab, and the --cwd-file contract
+Yazi was started with --cwd-file pointing at a file. Shell
+wrappers use this to change the shell's directory to wherever
+Yazi ended up when it quit.
+
+How these screens were captured: the lab has no interactive
+terminal, so Yazi ran on a pseudo-terminal (110x32) driven by a
+small Python harness (ptyrun.py, kept in this folder). The harness
+sent real keystrokes and rendered the terminal with the pyte
+library. What you see is the rendered screen, trimmed vertically
+where marked [...]. File results were then checked on disk with
+ordinary shell commands, which are shown after each session.
+The icons in the listings are Yazi's file-type glyphs, drawn from
+a Nerd Font; in a plain font they show as boxes or blanks.
+
+--- t is a prefix key in this version: pressing it pops up a
+    small menu of tab commands (the same which-key style menu
+    that g shows). The line that matters:
+
+  t -> Create a new tab in CWD        r -> Rename current tab
+
+--- t then t opens the second tab on the same folder. In the
+    second tab: j to kitchen, l to enter it, then q quits.
+
+--- The file Yazi was told to write its final folder to:
+
+$ cat cwd-out.txt
+/home/hatch/workspace/yazi-labwork/playground/kitchen
+
+--- The first tab was still sitting on the playground folder
+    itself (its screen was identical to t09's first screen).
+    Only the active tab's folder is written, and relative paths
+    for the file are resolved when Yazi exits, not when it
+    starts - a first run of this session, quit from a different
+    folder, proved that by landing the file somewhere else.

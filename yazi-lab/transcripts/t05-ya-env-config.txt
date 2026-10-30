@@ -1,0 +1,20 @@
+$ XDG_CONFIG_HOME=~/workspace/yazi-labwork/confighome ya env   (excerpt)
+Yazi
+No such file or directory (os error 2)
+    Backtrace: None
+
+Ya
+    Version: 26.9.1 (8dd895c 2026-09-01)
+    Debug  : false
+    Triple : x86_64-unknown-linux-gnu (linux-x86_64)
+    Rustc  : 1.98.0 (88d9e12a 2026-08-18)
+
+Config
+    Init             : /home/hatch/workspace/yazi-labwork/confighome/yazi/init.lua (No such file or directory (os error 2))
+    Yazi             : /home/hatch/workspace/yazi-labwork/confighome/yazi/yazi.toml (43 chars)
+    Keymap           : /home/hatch/workspace/yazi-labwork/confighome/yazi/keymap.toml (143 chars)
+    Theme            : /home/hatch/workspace/yazi-labwork/confighome/yazi/theme.toml (No such file or directory (os error 2))
+    VFS              : /home/hatch/workspace/yazi-labwork/confighome/yazi/vfs.toml (No such file or directory (os error 2))
+    Package          : /home/hatch/workspace/yazi-labwork/confighome/yazi/package.toml (No such file or directory (os error 2))
+    Dark/light flavor: ArcSwapAny("") / ArcSwapAny("")
+

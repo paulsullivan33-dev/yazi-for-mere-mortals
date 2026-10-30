@@ -1,0 +1,6 @@
+wait 1.8
+send .
+wait 0.6
+snap 01-hidden-toggled
+send q
+wait 0.5

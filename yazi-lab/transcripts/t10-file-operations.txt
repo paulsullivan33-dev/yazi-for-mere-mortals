@@ -1,0 +1,164 @@
+Session: opening, renaming, moving, trashing, copying
+Start directory: a fresh folder holding archive/ (an empty
+folder), draft-letter.txt, measurements.csv and old-notes.txt.
+EDITOR and VISUAL were pointed at a three-line script that does
+nothing but append its arguments to a log file, so "opening" a
+file leaves evidence instead of starting a real editor.
+
+How these screens were captured: the lab has no interactive
+terminal, so Yazi ran on a pseudo-terminal (110x32) driven by a
+small Python harness (ptyrun.py, kept in this folder). The harness
+sent real keystrokes and rendered the terminal with the pyte
+library. What you see is the rendered screen, trimmed vertically
+where marked [...]. File results were then checked on disk with
+ordinary shell commands, which are shown after each session.
+The icons in the listings are Yazi's file-type glyphs, drawn from
+a Nerd Font; in a plain font they show as boxes or blanks.
+
+--- Start. Hover on archive (folders sort first).
+
+~/workspace/yazi-labwork/ops
+   bin       │ archive                                          │                No items
+   config    │ 󰈙 draft-letter.txt                                  │
+   extract   │  measurements.csv                                  │
+  ops      │ 󰈙 old-notes.txt                                     │
+   playgrou… │                                                     │
+   raw       │                                                     │
+   snaps-b1  │                                                     │
+   snaps-b2  │                                                     │
+[...]
+ NOR  0B  archive                                                                drwxrwx---  Top   1/4  
+
+--- j moves to draft-letter.txt, then o opens it. The screen
+    returns unchanged (the "editor" exits at once), but the log
+    proves the open, with the file's full path:
+
+$ cat editor.log
+editor called with: /home/hatch/workspace/yazi-labwork/ops/draft-letter.txt
+
+--- r opens the rename prompt, pre-filled with the old name and
+    the cursor resting just before the extension, so twenty
+    backspaces clear only the stem and leave ".txt" standing:
+
+~/workspace/yazi-labwork/ops
+   bin       │  archive                                           │Dear Sam,
+   config    │󰈙 draft-letter.txt                                 │
+   extract   │╭Rename:─────────────────────────────────────────╮   │Thank you for the seedlings.
+  ops      ││.txt                                            │   │
+   playgrou… │╰────────────────────────────────────────────── ╯   │
+[...]
+ NOR  40B  draft-letter.txt                                                      -rw-rw----  50%   2/4  
+
+    Typing "letter-to-sam" and Enter then gives:
+
+~/workspace/yazi-labwork/ops
+   bin       │  archive                                           │Dear Sam,
+   config    │󰈙 letter-to-sam.txt                                │
+   extract   │  measurements.csv                                  │Thank you for the seedlings.
+  ops      │ 󰈙 old-notes.txt                                     │
+   playgrou… │                                                     │
+   raw       │                                                     │
+   snaps-b1  │                                                     │
+   snaps-b2  │                                                     │
+[...]
+ NOR  40B  letter-to-sam.txt                                                     -rw-rw----  50%   2/4  
+
+--- x cuts measurements.csv; gg and l move into archive; p
+    pastes it there. The CSV's own text is in the preview pane.
+
+~/workspace/yazi-labwork/ops/archive
+  archive  │ measurements.csv                                 │row,length
+  󰈙 lett….txt │                                                     │1,12
+  󰈙 old-….txt │                                                     │2,9
+              │                                                     │
+              │                                                     │
+              │                                                     │
+              │                                                     │
+              │                                                     │
+[...]
+ NOR  20B  measurements.csv                                                      -rw-rw----  Top   1/1  
+
+--- Back in the parent (h), G lands on old-notes.txt and d asks
+    first (the dialog names the file and offers [Y]es / [N]o):
+
+~/workspace/yazi-labwork/ops
+   bin       │  archive                                           │Old notes, kept just in case.
+   config    │ 󰈙 letter-to-sam.txt                                 │
+   extract   │󰈙 old-notes.txt                                    │
+  ops      │                                                     │
+   playgrou… │                                                     │
+   raw       │     ╭───────────────────────Trash 1 selected file?───────────────────────╮
+   snaps-b1  │     │ 󰈙 /home/hatch/workspace/yazi-labwork/ops/old-notes.txt             │
+   snaps-b2  │     │                                                                    │
+   snaps-b3  │     │                                                                    │
+   snaps-nav │     │                                                                    │
+   snaps-pr… │     │                                                                    │
+[...]
+ NOR  30B  old-notes.txt                                                         -rw-rw----  Bot   3/3  
+
+--- After y, old-notes.txt is gone from the folder. It has not
+    been deleted outright: d moves files to the desktop trash.
+
+--- Selection and copying, in a second fresh folder: pressing
+    Space on two files marks both; the delete dialog then counts
+    them (this one was cancelled with Ctrl-C):
+
+~/workspace/yazi-labwork/ops                                                                               2
+   bin       │  archive                                           │Old notes, kept just in case.
+   config    │ 󰈙 draft-letter.txt                                  │
+   extract   │ 󰈙 draft-letter_1.txt                                │
+  ops      │  measurements.csv                                  │
+   playgrou… │󰈙 old-notes.txt                                    │
+   raw       │     ╭──────────────────────Trash 2 selected files?───────────────────────╮
+   snaps-b1  │     │ 󰈙 /home/hatch/workspace/yazi-labwork/ops/draft-letter.txt          │
+   snaps-b2  │     │  /home/hatch/workspace/yazi-labwork/ops/measurements.csv          │
+   snaps-b3  │     │                                                                    │
+   snaps-b4  │     │                                                                    │
+   snaps-nav │     │                                                                    │
+[...]
+ NOR  30B  old-notes.txt                                                         -rw-rw----  Bot   5/5  
+
+    And y (copy) followed by p (paste) on draft-letter.txt, in
+    the same folder, makes a sibling with a numbered suffix:
+
+~/workspace/yazi-labwork/ops                                                                               1
+   bin       │  archive                                           │Dear Sam,
+   config    │ 󰈙 draft-letter.txt                                  │
+   extract   │󰈙 draft-letter_1.txt                               │Thank you for the seedlings.
+  ops      │  measurements.csv                                  │
+   playgrou… │ 󰈙 old-notes.txt                                     │
+   raw       │                                                     │
+   snaps-b1  │                                                     │
+   snaps-b2  │                                                     │
+[...]
+ NOR  40B  draft-letter_1.txt                                                    -rw-rw----  60%   3/5  
+
+--- The shell's own verdict on everything above:
+
+$ ls ops ops/archive
+ops:
+archive
+archive_1
+letter-to-sam.txt
+
+ops/archive:
+measurements.csv
+
+$ ls ~/.local/share/Trash/files
+old-notes.txt
+
+(The archive_1 folder is the same copy-and-paste trick played
+on the archive folder itself, in the same session.)
+
+Addendum, two more keys from two short sessions:
+
+- Shift-D asks a different question - "Permanently delete 1
+  selected file?" - and means it. old-notes.txt was removed
+  with D in a fresh copy of the folder, and afterwards the
+  trash directory did not exist at all: nothing went there.
+- In the playground folder, pressing . (full stop) toggles
+  hidden files for the session: .hidden-note.txt appeared in
+  the listing at once, with no configuration involved.
+- The create prompt makes folders too: typing "new-folder/"
+  (with the trailing slash) and Enter produced a folder of
+  that name, confirmed both on screen and by ls.

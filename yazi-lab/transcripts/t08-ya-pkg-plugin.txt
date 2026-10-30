@@ -1,0 +1,17 @@
+$ ya pkg add yazi-rs/plugins:full-border
+
+   Upgrading package `full-border.yazi`
+
+Cloning into '/home/hatch/.cache/yazi/packages/3db547c6a883e54d90397a0bac9b736f'...
+remote: Enumerating objects: 1839, done.
+remote: Total 1839 (delta 605), reused 457 (delta 415), pack-reused 1104 (from 3)
+
+   Deploying package `full-border.yazi`
+
+Done!
+
+$ ya pkg list
+Plugins:
+	yazi-rs/plugins:full-border (896fa5a)
+Flavors:
+	yazi-rs/flavors:catppuccin-mocha (1183892)

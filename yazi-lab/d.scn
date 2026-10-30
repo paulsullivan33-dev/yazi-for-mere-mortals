@@ -1,0 +1,11 @@
+wait 1.8
+snap 01-start
+send G
+send D
+wait 0.6
+snap 02-perm-delete-prompt
+send y
+wait 0.6
+snap 03-after
+send q
+wait 0.5
